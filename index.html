@@ -6,23 +6,23 @@
     <title>Redirecting...</title>
     <script>
         window.onload = function () {
-            const iosRedirect = "https://ownmylink.com"; // Replace with the target URL for Safari
-            const androidIntent = "intent://ownmylink.com/#Intent;scheme=https;package=com.android.chrome;end"; // Chrome Intent for Android
+            const iosUrl = "https://ownmylink.com"; // Replace with the Safari-compatible URL
+            const androidIntent = "intent://ownmylink.com/#Intent;scheme=https;package=com.android.chrome;end"; // Intent for Chrome
 
-            // Detect the platform and redirect
+            // Detect the platform
             if (navigator.userAgent.includes("iPhone") || navigator.userAgent.includes("iPad")) {
-                // iOS: Open Safari
-                const a = document.createElement('a');
-                a.href = iosRedirect;
-                a.rel = 'noreferrer';
-                a.target = '_blank';
-                a.click();
+                // iOS: Force Safari by dynamically triggering the link
+                const link = document.createElement("a");
+                link.href = iosUrl;
+                link.target = "_blank";
+                link.rel = "noreferrer noopener";
+                link.click();
             } else if (navigator.userAgent.includes("Android")) {
-                // Android: Open Chrome using intent
+                // Android: Force Chrome using intent
                 window.location.replace(androidIntent);
             } else {
-                // Fallback: Open the default browser
-                window.location.href = iosRedirect;
+                // Fallback for desktop or other environments
+                window.location.href = iosUrl;
             }
         };
     </script>
