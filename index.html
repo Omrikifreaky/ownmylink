@@ -6,25 +6,24 @@
     <title>Redirecting...</title>
     <script>
         window.onload = function () {
-            var iosUrl = "https://ownmylink.com"; // Target URL for iOS/Safari
-            var androidIntentUrl = "intent://ownmylink.com/#Intent;scheme=https;package=com.android.chrome;end"; // Intent for Chrome on Android
-            var fallbackUrl = "https://ownmylink.com"; // Fallback for unsupported devices
+            var iosUrl = "https://ownmylink.com"; // Target URL for Safari (iOS)
+            var androidIntentUrl = "intent://ownmylink.com/#Intent;scheme=https;package=com.android.chrome;end"; // Intent for Chrome (Android)
+            var fallbackUrl = "https://ownmylink.com"; // Fallback for other cases
 
-            // Detect platform
+            // Detect platform and redirect
             if (navigator.userAgent.includes("iPhone") || navigator.userAgent.includes("iPad")) {
-                // Force open in Safari on iOS
+                // iOS: Attempt to open Safari
                 window.location.replace(iosUrl);
             } else if (navigator.userAgent.includes("Android")) {
-                // Use intent for Android to open in Chrome
+                // Android: Attempt to open Chrome using intent
                 window.location.replace(androidIntentUrl);
             } else {
-                // Default behavior for desktop or other devices
+                // Default: Redirect to the fallback URL
                 window.location.href = fallbackUrl;
             }
         };
     </script>
 </head>
 <body>
-    <p>Redirecting...</p>
 </body>
 </html>
