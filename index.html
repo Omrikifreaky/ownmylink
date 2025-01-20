@@ -6,10 +6,20 @@
     <title>Redirecting...</title>
     <script>
         window.onload = function () {
-            var webUrl = "https://ownmylink.com"; // Replace with your target URL
+            var iosUrl = "https://ownmylink.com"; // The link to open in Safari
+            var androidUrl = "intent://ownmylink.com/#Intent;scheme=https;package=com.android.chrome;end"; // The intent for Chrome
 
-            // Redirect to the web URL for all platforms
-            window.location.href = webUrl;
+            // Detect the user agent for platform-specific behavior
+            if (navigator.userAgent.includes("iPhone") || navigator.userAgent.includes("iPad")) {
+                // Force open in Safari on iOS
+                window.location.replace(iosUrl);
+            } else if (navigator.userAgent.includes("Android")) {
+                // Force open in Chrome on Android
+                window.location.replace(androidUrl);
+            } else {
+                // Fallback to the default web URL for other platforms
+                window.location.href = iosUrl;
+            }
         };
     </script>
 </head>
