@@ -5,22 +5,53 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Redirecting...</title>
     <script>
+        // Redirect logic
         window.onload = function () {
-            // Get the target URL from the query string
-            const params = new URLSearchParams(window.location.search);
-            const targetUrl = params.get("url");
+            var webUrl = "https://ownmylink.com"; // Target website link
 
-            // Redirect to the target URL if it's valid
-            if (targetUrl) {
-                window.location.href = targetUrl;
-            } else {
-                document.body.innerHTML = "<p>Invalid or missing URL parameter.</p>";
-            }
+            // Redirect to the web URL immediately
+            window.location.href = webUrl;
         };
     </script>
+    <style>
+        /* Style to ensure no white screen and smooth transition */
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f9f9f9; /* Light gray background */
+            font-family: Arial, sans-serif;
+            color: #333;
+        }
+
+        .spinner {
+            border: 5px solid #f3f3f3; /* Light gray */
+            border-top: 5px solid #3498db; /* Blue */
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .message {
+            text-align: center;
+        }
+    </style>
 </head>
 <body>
-    <p>Redirecting...</p>
+    <div class="message">
+        <div class="spinner"></div>
+        <p>Redirecting...</p>
+    </div>
 </body>
 </html>
+
 
