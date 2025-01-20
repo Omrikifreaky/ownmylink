@@ -6,19 +6,10 @@
     <title>Redirecting...</title>
     <script>
         window.onload = function () {
-            var webUrl = "https://ownmylink.com";
+            var webUrl = "https://ownmylink.com"; // Replace with your target URL
 
-            // Attempt to open Safari or Chrome
-            if (navigator.userAgent.includes("iPhone") || navigator.userAgent.includes("iPad")) {
-                // Open in Safari using Apple's custom `http://` or `https://`
-                window.location.replace(webUrl);
-            } else if (navigator.userAgent.includes("Android")) {
-                // Use an intent to open Chrome on Android
-                window.location.replace("intent://ownmylink.com/#Intent;scheme=https;package=com.android.chrome;end");
-            } else {
-                // Default fallback to the web URL
-                window.location.href = webUrl;
-            }
+            // Redirect to the web URL for all platforms
+            window.location.href = webUrl;
         };
     </script>
 </head>
