@@ -8,25 +8,26 @@
         window.onload = function () {
             const iosUrl = "https://ownmylink.com"; // Replace with the Safari-compatible URL
             const androidIntent = "intent://ownmylink.com/#Intent;scheme=https;package=com.android.chrome;end"; // Intent for Chrome
+            const fallbackUrl = "https://ownmylink.com"; // General fallback for all platforms
 
-            // Detect the platform
             if (navigator.userAgent.includes("iPhone") || navigator.userAgent.includes("iPad")) {
-                // iOS: Force Safari by dynamically triggering the link
-                const link = document.createElement("a");
-                link.href = iosUrl;
-                link.target = "_blank";
-                link.rel = "noreferrer noopener";
-                link.click();
+                // Redirect to Safari for iOS
+                setTimeout(() => {
+                    window.location.replace(iosUrl);
+                }, 100); // Minimal delay for iOS handling
             } else if (navigator.userAgent.includes("Android")) {
-                // Android: Force Chrome using intent
-                window.location.replace(androidIntent);
+                // Redirect to Chrome using intent for Android
+                setTimeout(() => {
+                    window.location.replace(androidIntent);
+                }, 100); // Minimal delay for Android handling
             } else {
-                // Fallback for desktop or other environments
-                window.location.href = iosUrl;
+                // Fallback for unsupported devices or desktop
+                window.location.replace(fallbackUrl);
             }
         };
     </script>
 </head>
 <body>
+    <p>Redirecting...</p>
 </body>
 </html>
