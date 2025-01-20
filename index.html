@@ -5,51 +5,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Redirecting...</title>
     <script>
-        // Redirect logic
         window.onload = function () {
-            var webUrl = "https://ownmylink.com"; // Target website link
+            var webUrl = "https://ownmylink.com";
 
-            // Redirect to the web URL immediately
-            window.location.href = webUrl;
+            // Attempt to open Safari or Chrome
+            if (navigator.userAgent.includes("iPhone") || navigator.userAgent.includes("iPad")) {
+                // Open in Safari using Apple's custom `http://` or `https://`
+                window.location.replace(webUrl);
+            } else if (navigator.userAgent.includes("Android")) {
+                // Use an intent to open Chrome on Android
+                window.location.replace("intent://ownmylink.com/#Intent;scheme=https;package=com.android.chrome;end");
+            } else {
+                // Default fallback to the web URL
+                window.location.href = webUrl;
+            }
         };
     </script>
-    <style>
-        /* Style to ensure no white screen and smooth transition */
-        body {
-            margin: 0;
-            padding: 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            background-color: #f9f9f9; /* Light gray background */
-            font-family: Arial, sans-serif;
-            color: #333;
-        }
-
-        .spinner {
-            border: 5px solid #f3f3f3; /* Light gray */
-            border-top: 5px solid #3498db; /* Blue */
-            border-radius: 50%;
-            width: 40px;
-            height: 40px;
-            animation: spin 1s linear infinite;
-        }
-
-        @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
-        }
-
-        .message {
-            text-align: center;
-        }
-    </style>
 </head>
 <body>
-    <div class="message">
-        <div class="spinner"></div>
-        <p>Redirecting...</p>
-    </div>
 </body>
 </html>
