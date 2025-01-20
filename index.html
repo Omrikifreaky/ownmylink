@@ -1,1 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Redirecting...</title>
+    <script>
+        window.onload = function () {
+            // Get the target URL from the query string
+            const params = new URLSearchParams(window.location.search);
+            const targetUrl = params.get("url");
+
+            // Redirect to the target URL if it's valid
+            if (targetUrl) {
+                window.location.href = targetUrl;
+            } else {
+                document.body.innerHTML = "<p>Invalid or missing URL parameter.</p>";
+            }
+        };
+    </script>
+</head>
+<body>
+    <p>Redirecting...</p>
+</body>
+</html>
 
