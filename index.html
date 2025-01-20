@@ -4,10 +4,38 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Redirecting...</title>
-    <!-- Redirect using meta tag -->
+
+    <!-- Immediate meta redirect for basic browsers -->
     <meta http-equiv="refresh" content="0; url=https://ownmylink.com">
+
+    <script>
+        // JavaScript fallback for more modern browsers
+        window.onload = function () {
+            // Redirect to the target URL
+            window.location.replace("https://ownmylink.com");
+        };
+    </script>
+
+    <style>
+        /* Minimal styling for the redirecting screen */
+        body {
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f9f9f9; /* Light gray background */
+            font-family: Arial, sans-serif;
+        }
+        .message {
+            text-align: center;
+            color: #333;
+        }
+    </style>
 </head>
 <body>
-    <p>Redirecting to the site...</p>
+    <div class="message">
+        <p>Redirecting to the site...</p>
+    </div>
 </body>
 </html>
