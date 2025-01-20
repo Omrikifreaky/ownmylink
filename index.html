@@ -6,28 +6,25 @@
     <title>Redirecting...</title>
     <script>
         window.onload = function () {
-            var iosUrl = "https://ownmylink.com"; // Target URL for iOS devices
-            var androidIntentUrl = "intent://ownmylink.com/#Intent;scheme=https;package=com.android.chrome;end"; // Intent for Android Chrome
-            var fallbackUrl = "https://ownmylink.com"; // Fallback for all other devices
+            var iosUrl = "https://ownmylink.com"; // Target URL for iOS/Safari
+            var androidIntentUrl = "intent://ownmylink.com/#Intent;scheme=https;package=com.android.chrome;end"; // Intent for Chrome on Android
+            var fallbackUrl = "https://ownmylink.com"; // Fallback for unsupported devices
 
-            if (navigator.userAgent.includes("Instagram")) {
-                // Attempt to notify users to open in their browser
-                alert("For the best experience, please tap the three dots in the top-right corner and select 'Open in Browser'.");
-            }
-
+            // Detect platform
             if (navigator.userAgent.includes("iPhone") || navigator.userAgent.includes("iPad")) {
-                // iOS: Attempt to force Safari
-                window.location.replace("https://ownmylink.com");
+                // Force open in Safari on iOS
+                window.location.replace(iosUrl);
             } else if (navigator.userAgent.includes("Android")) {
-                // Android: Force Chrome using intent
+                // Use intent for Android to open in Chrome
                 window.location.replace(androidIntentUrl);
             } else {
-                // Default fallback for desktop or unsupported devices
+                // Default behavior for desktop or other devices
                 window.location.href = fallbackUrl;
             }
         };
     </script>
 </head>
 <body>
+    <p>Redirecting...</p>
 </body>
 </html>
