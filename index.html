@@ -4,27 +4,25 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Redirecting...</title>
-
-    <!-- Immediate meta redirect for basic browsers -->
-    <meta http-equiv="refresh" content="0; url=https://ownmylink.com">
-
     <script>
-        // JavaScript fallback for more modern browsers
         window.onload = function () {
-            // Redirect to the target URL
-            window.location.replace("https://ownmylink.com");
+            // Create a hidden link to open Safari
+            const link = document.createElement("a");
+            link.href = "https://ownmylink.com"; // Replace with your target URL
+            link.target = "_blank";
+            link.rel = "noopener noreferrer";
+            document.body.appendChild(link);
+            link.click();
         };
     </script>
-
     <style>
-        /* Minimal styling for the redirecting screen */
         body {
             margin: 0;
+            background-color: #f9f9f9;
             display: flex;
             justify-content: center;
             align-items: center;
             height: 100vh;
-            background-color: #f9f9f9; /* Light gray background */
             font-family: Arial, sans-serif;
         }
         .message {
@@ -35,7 +33,7 @@
 </head>
 <body>
     <div class="message">
-        <p>Redirecting to the site...</p>
+        <p>Redirecting to Safari...</p>
     </div>
 </body>
 </html>
