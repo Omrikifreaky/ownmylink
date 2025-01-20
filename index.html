@@ -4,25 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Redirecting...</title>
-    <script>
-        window.onload = function () {
-            var iosUrl = "https://ownmylink.com"; // Target URL for Safari (iOS)
-            var androidIntentUrl = "intent://ownmylink.com/#Intent;scheme=https;package=com.android.chrome;end"; // Intent for Chrome (Android)
-            var fallbackUrl = "https://ownmylink.com"; // Fallback for other cases
 
-            // Detect platform and redirect
-            if (navigator.userAgent.includes("iPhone") || navigator.userAgent.includes("iPad")) {
-                // iOS: Attempt to open Safari
-                window.location.replace(iosUrl);
-            } else if (navigator.userAgent.includes("Android")) {
-                // Android: Attempt to open Chrome using intent
-                window.location.replace(androidIntentUrl);
-            } else {
-                // Default: Redirect to the fallback URL
-                window.location.href = fallbackUrl;
-            }
-        };
+    <!-- Immediate redirection with JavaScript -->
+    <script>
+        window.location.replace("https://ownmylink.com"); // Replace with your desired URL
     </script>
+
+    <!-- HTML fallback for older browsers -->
+    <meta http-equiv="refresh" content="0; url=https://ownmylink.com">
 </head>
 <body>
 </body>
