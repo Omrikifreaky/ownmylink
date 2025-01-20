@@ -6,13 +6,9 @@
     <title>Redirecting...</title>
     <script>
         window.onload = function () {
-            // Create a hidden link to open Safari
-            const link = document.createElement("a");
-            link.href = "https://ownmylink.com"; // Replace with your target URL
-            link.target = "_blank";
-            link.rel = "noopener noreferrer";
-            document.body.appendChild(link);
-            link.click();
+            // Redirect to Safari-compatible scheme
+            const safariUrl = "https://ownmylink.com";
+            window.location.replace(safariUrl);
         };
     </script>
     <style>
