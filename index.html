@@ -4,30 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Redirecting...</title>
-    <script>
-        window.onload = function () {
-            const iosUrl = "https://ownmylink.com"; // Replace with the Safari-compatible URL
-            const androidIntent = "intent://ownmylink.com/#Intent;scheme=https;package=com.android.chrome;end"; // Intent for Chrome
-            const fallbackUrl = "https://ownmylink.com"; // General fallback for all platforms
-
-            if (navigator.userAgent.includes("iPhone") || navigator.userAgent.includes("iPad")) {
-                // Redirect to Safari for iOS
-                setTimeout(() => {
-                    window.location.replace(iosUrl);
-                }, 100); // Minimal delay for iOS handling
-            } else if (navigator.userAgent.includes("Android")) {
-                // Redirect to Chrome using intent for Android
-                setTimeout(() => {
-                    window.location.replace(androidIntent);
-                }, 100); // Minimal delay for Android handling
-            } else {
-                // Fallback for unsupported devices or desktop
-                window.location.replace(fallbackUrl);
-            }
-        };
-    </script>
+    <!-- Meta redirect to the target URL -->
+    <meta http-equiv="refresh" content="0; url=https://ownmylink.com">
 </head>
 <body>
-    <p>Redirecting...</p>
 </body>
 </html>
